@@ -1,0 +1,63 @@
+Lecciones a tomar por encima (es demasiado largo el curso):
+
+Mierc:
+6- Manejo de listas
+7- Styling components
+8- Debugging React
+9- *Project
+
+Jue:
+11- APIs
+12- *Project
+15- HTTP Requests
+21- React Router
+22- Authentication
+
+Vie:
+23- Deploy
+26- Animation
+29- TypeScript
+
+
+// ************
+
+- .JSX es el html potenciado
+- .TS y .TSX son de TypeScript
+- Usar siempre const para crear variables
+- Las variables que interactuan con el UI son siempre con UseState()
+    const variable [texto, setTexto] = useState('');
+- Pasaje de datos
+    - Padre a hijo: ej. form de edición
+        Con props
+
+        Padre:
+        <Componente
+        padreAhijo={variable}
+        >
+
+        Hijo:
+        function Componente(props){
+            props.padreAHijo
+        }
+
+    - Hijo a padre ("Lifting the state up"): ej. submit de form
+        Padre: 
+
+        const saveDataHandler = (inputData) => {
+            const expenseData = {
+                ...inputData,
+                id: Math.random().toString()
+            };
+        };
+
+        <Componente
+        onSaveData={saveDataHandler} // le paso la función al hijo
+        >
+
+        Hijo:
+        function Componente(props){
+            props.onSaveData(data); // ejecuto la función del padre con la data del hijo
+        }
+
+- Función anónima ()=>{}
+- Los eventos siempre llevan Handler()
