@@ -1,6 +1,6 @@
-import React from "react";
-import "./NewExpense.css";
-import ExpenseForm from "./ExpenseForm";
+import React from 'react';
+import './NewExpense.css';
+import ExpenseForm from './ExpenseForm';
 
 function NewExpense(props: any) {
   // Clase 80: https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25596020#overview
@@ -10,11 +10,12 @@ function NewExpense(props: any) {
       ...inputData,
       id: Math.random().toString(),
     };
-    props.onAddExpense(expenseData); // le paso los datos al padre
+    props.onAddExpense(expenseData); // le paso los datos al padre ("Lifting the state up")
+    //Clase 81: https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25596024#overview
   };
 
   return (
-    <div className="new-expense">
+    <div className='new-expense'>
       <ExpenseForm
         onSaveData={saveDataHandler} // le paso la función y la ejecuto en el hijo
       ></ExpenseForm>
