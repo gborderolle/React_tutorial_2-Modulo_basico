@@ -32,7 +32,7 @@ function App() {
     // Clase 87: https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25597080#search
     //setExpenses([expense, ...expenses]); // crea un array nuevo, inserta el array dummy y agrega el expense nuevo
     setExpenses((prevExpenses) => {
-      // usa la última versión del expeses
+      // prevExpenses: usa la última versión del expeses
       return [expense, ...prevExpenses];
     });
   };
@@ -40,7 +40,7 @@ function App() {
   return (
     <div>
       <NewExpense
-        onAddExpense={onAddExpenseHandler} // le paso la función al hijo
+        onAddExpense={onAddExpenseHandler} // le paso la función al hijo, para tomar los datos
       />
       <Expenses items={expenses} />
     </div>
