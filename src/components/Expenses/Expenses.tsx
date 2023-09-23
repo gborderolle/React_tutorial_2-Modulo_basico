@@ -1,10 +1,12 @@
 import Card from '../UI/Card';
-import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
 import { useState } from 'react';
-import ExpenseItem from './ExpenseItem';
+import { ExpensesList } from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
-function Expenses(props: any) {
+import './Expenses.css';
+
+export default function Expenses(props: any) {
   const [filterYear, setFilterYear] = useState(
     //new Date().getFullYear().toString() // hoy
     'Todos'
@@ -30,21 +32,8 @@ function Expenses(props: any) {
         selected={filterYear}
         onChangeFilter={filterChangeHandler}
       />
-
-      {Array.isArray(filteredList) ? (
-        filteredList.map((item: any) => (
-          <ExpenseItem
-            key={item.id} // si la lista no tiene key único para cada item, usar index: .map((item, index)=>(... key={index}))
-            title={item.title}
-            amount={item.amount}
-            date={item.date}
-          />
-        ))
-      ) : (
-        <p>No hay gastos disponibles.</p>
-      )}
+      <ExpensesChart expenses={filteredList} />
+      <ExpensesList items={filteredList} />
     </Card>
   );
 }
-
-export default Expenses;
